@@ -1,133 +1,85 @@
 .queryWidget {
-    background-color: white;
-    box-shadow: 0 0 10px rgba(237, 83, 83, 0.5);
-    padding: 20px 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    box-sizing: border-box;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .input {
-    background-color: transparent;
-    color: grey;
-    border: 2px solid lightgray;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.input:focus {
-    outline: lightgray;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ff6f91;
 }
 
 .filterRow {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .skillsSelector {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    flex-grow: 1;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
 }
 
 .selectContainer {
-    display: flex;
-    gap: 10px;
+  margin-right: 10px;
 }
 
 .select {
-    width: 200px;
-    max-height: 42px;
-    background-color: transparent;
-    color: lightgray;
-    border: 2px solid lightgray;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1rem;
-}
-
-.select:focus {
-    outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ff6f91;
 }
 
 .chipsContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    width: 100%;
-    flex: 1;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .chip {
-    background-color: #FFEEEE;
-    color: black;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-}
-
-.chipText {
-    padding: 8px;
+  background-color: #ff8fa3;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .chipClose {
-    background-color: #FF6B6B;
-    color: white;
-    border: none;
-    width: 40px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 0px 5px 5px 0px;
+  background: none;
+  border: none;
+  color: white;
+  margin-left: 5px;
+  cursor: pointer;
 }
 
 .buttonContainer {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-shrink: 0;
+  display: flex;
+  gap: 10px;
 }
 
 .button {
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    box-sizing: border-box;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
 
 .applyButton {
-    background-color: #ed5353;
-    color: white;
-    border: none;
-}
-
-.applyButton:hover {
-    background-color: #d94d4d;
+  background-color: #ff6f91;
+  color: white;
 }
 
 .clearButton {
-    background-color: transparent;
-    color: #ed5353;
-    border: none;
+  background-color: #ff8fa3;
+  color: white;
 }
 
-.clearButton:hover {
-    background-color: rgba(237, 83, 83, 0.1);
-}
+
+
+

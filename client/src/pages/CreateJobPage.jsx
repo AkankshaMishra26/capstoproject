@@ -1,165 +1,182 @@
-/* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
-import ChipsSelector from "../components/ChipsSelector";
+import React, { useState } from "react";
 import styles from "./CreateJobPage.module.css";
-import { createJob } from "../api/Job";
-import { set } from "mongoose";
 
-const CreateJobPage = ({ currentUser }) => {
-	const validJobTypes = ["Full-Time", "Part-Time", "Internship"];
-	const validLocationTypes = ["On-Site", "Remote", "Hybrid"];
+const CreateJobPage = () => {
+  const [jobData, setJobData] = useState({
+    companyName: "",
+    logoUrl: "",
+    jobPosition: "",
+    monthlySalary: "",
+    jobType: "",
+    remoteOrOffice: "",
+    location: "",
+    jobDescription: "",
+    aboutCompany: "",
+    skillsRequired: [],
+    additionalInfo: "",
+  });
 
-	const [job, setJob] = useState({
-		companyName: "",
-		title: "",
-		description: "",
-		logoUrl: "",
-		jobType: "",
-		salary: "",
-		location: "",
-		duration: "",
-		locationType: "",
-		information: "",
-		skills: [],
-	});
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setJobData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-	const handleJobTypeChange = (value) => {
-		if (validJobTypes.includes(value)) {
-			setJob({ ...job, jobType: value });
-		}
-	};
+  const handleSkillsChange = (e) => {
+    const options = e.target.options;
+    const selectedSkills = [];
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].selected) {
+        selectedSkills.push(options[i].value);
+      }
+    }
+    setJobData((prevData) => ({
+      ...prevData,
+      skillsRequired: selectedSkills,
+    }));
+  };
 
-	const handleLocationTypeChange = (value) => {
-		if (validLocationTypes.includes(value)) {
-			setJob({ ...job, locationType: value });
-		}
-	};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(jobData);
+    // Add your form submission logic here
+  };
 
-	const handleJobCreate = async () => {
-		console.log(job);
-		const response = await createJob(job);
-		if (response.status === 201) {
-			setJob({
-				companyName: "",
-				title: "",
-				description: "",
-				logoUrl: "",
-				jobType: "",
-				salary: "",
-				location: "",
-				duration: "",
-				locationType: "",
-				information: "",
-				skills: [],
-			});
-			alert("Job added successfully");
-		} else {
-			alert("Error adding job");
-		}
-	};
-
-	return (
-		<div className={styles.body}>
-			<h3>Add job description</h3>
-
-			<div className={styles.inputElement}>
-				<label>Company Name</label>
-				<input
-					type="text"
-					value={job.companyName}
-					onChange={(e) => setJob({ ...job, companyName: e.target.value })}
-				/>
-			</div>
-
-			<div className={styles.inputElement}>
-				<label>Add logo URL</label>
-				<input
-					type="text"
-					value={job.logoUrl}
-					onChange={(e) => setJob({ ...job, logoUrl: e.target.value })}
-				/>
-			</div>
-
-			<div className={styles.inputElement}>
-				<label>Job Position</label>
-				<input
-					type="text"
-					value={job.title}
-					onChange={(e) => setJob({ ...job, title: e.target.value })}
-				/>
-			</div>
-			<div className={styles.inputElement}>
-				<label>Duration</label>
-				<input
-					type="text"
-					value={job.duration}
-					onChange={(e) => setJob({ ...job, duration: e.target.value })}
-				/>
-			</div>
-
-			<div className={styles.inputElement}>
-				<label>Monthly Salary</label>
-				<input
-					type="text"
-					value={job.salary}
-					onChange={(e) => setJob({ ...job, salary: e.target.value })}
-				/>
-			</div>
-
-			<div className={styles.inputElement}>
-				<label>Job Type</label>
-				<input
-					type="text"
-					value={job.jobType}
-					onChange={(e) => setJob({ ...job, jobType: e.target.value })}
-				/>
-			</div>
-
-			<div className={styles.inputElement}>
-				<label>Remote/Office</label>
-				<input
-					type="text"
-					value={job.locationType}
-					onChange={(e) => setJob({ ...job, locationType: e.target.value })}
-				/>
-			</div>
-
-			<div className={styles.inputElement}>
-				<label>Location</label>
-				<input
-					type="text"
-					value={job.location}
-					onChange={(e) => setJob({ ...job, location: e.target.value })}
-				/>
-			</div>
-			<div className={styles.inputElement}>
-				<label>Job Description</label>
-				<input
-					type="text"
-					value={job.description}
-					onChange={(e) => setJob({ ...job, description: e.target.value })}
-				/>
-			</div>
-
-			<div className={styles.inputElement}>
-				<ChipsSelector
-					selectedSkills={job.skills}
-					setSelectedSkills={(skills) => setJob({ ...job, skills })}
-				/>
-			</div>
-			<div className={styles.inputElement}>
-				<label>Information: </label>
-				<input
-					type="text"
-					value={job.information}
-					onChange={(e) => setJob({ ...job, information: e.target.value })}
-				/>
-			</div>
-
-			<button>Cancel</button>
-			<button onClick={handleJobCreate}>+Add Job</button>
-		</div>
-	);
+  return (
+    <div className={styles.createJobPage}>
+      <div className={styles.formContainer}>
+        <h2 className={styles.pageTitle}>Add job description</h2>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label>
+            Company Name
+            <input
+              type="text"
+              name="companyName"
+              value={jobData.companyName}
+              onChange={handleChange}
+              placeholder="Enter your company name here"
+            />
+          </label>
+          <label>
+            Add logo URL
+            <input
+              type="text"
+              name="logoUrl"
+              value={jobData.logoUrl}
+              onChange={handleChange}
+              placeholder="Enter the logo URL"
+            />
+          </label>
+          <label>
+            Job position
+            <input
+              type="text"
+              name="jobPosition"
+              value={jobData.jobPosition}
+              onChange={handleChange}
+              placeholder="Enter your position"
+            />
+          </label>
+          <label>
+            Monthly salary
+            <input
+              type="text"
+              name="monthlySalary"
+              value={jobData.monthlySalary}
+              onChange={handleChange}
+              placeholder="Enter Amount in rupees"
+            />
+          </label>
+          <label>
+            Job Type
+            <select name="jobType" value={jobData.jobType} onChange={handleChange}>
+              <option value="">Select</option>
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+              <option value="Internship">Internship</option>
+            </select>
+          </label>
+          <label>
+            Remote/Office
+            <select name="remoteOrOffice" value={jobData.remoteOrOffice} onChange={handleChange}>
+              <option value="">Select</option>
+              <option value="Remote">Remote</option>
+              <option value="Office">Office</option>
+            </select>
+          </label>
+          <label>
+            Location
+            <input
+              type="text"
+              name="location"
+              value={jobData.location}
+              onChange={handleChange}
+              placeholder="Enter Location"
+            />
+          </label>
+          <label>
+            Job Description
+            <textarea
+              name="jobDescription"
+              value={jobData.jobDescription}
+              onChange={handleChange}
+              placeholder="Type the job description"
+            />
+          </label>
+          <label>
+            About Company
+            <textarea
+              name="aboutCompany"
+              value={jobData.aboutCompany}
+              onChange={handleChange}
+              placeholder="Type about your company"
+            />
+          </label>
+          <label>
+            Skills Required
+            <select
+              name="skillsRequired"
+              multiple={true}
+              value={jobData.skillsRequired}
+              onChange={handleSkillsChange}
+              className={styles.skillsSelect}
+            >
+              <option value="JavaScript">JavaScript</option>
+              <option value="React">React</option>
+              <option value="Node.js">Node.js</option>
+              <option value="Python">Python</option>
+              <option value="Django">Django</option>
+              <option value="Java">Java</option>
+              <option value="Spring">Spring</option>
+              <option value="SQL">SQL</option>
+              <option value="NoSQL">NoSQL</option>
+              <option value="AWS">AWS</option>
+              <option value="Azure">Azure</option>
+            </select>
+          </label>
+          <label>
+            Information
+            <textarea
+              name="additionalInfo"
+              value={jobData.additionalInfo}
+              onChange={handleChange}
+              placeholder="Enter the additional information"
+            />
+          </label>
+          <div className={styles.buttonGroup}>
+            <button type="button" className={styles.cancelButton}>Cancel</button>
+            <button type="submit" className={styles.addButton}>+ Add Job</button>
+          </div>
+        </form>
+      </div>
+      <div className={styles.imageContainer}>
+        <h2>Recruiter add job details here</h2>
+        <img src='../image_job_page.jpg' alt='Recruiter add job details here' className={styles.image} />
+      </div>
+    </div>
+  );
 };
 
 export default CreateJobPage;

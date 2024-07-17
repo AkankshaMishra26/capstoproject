@@ -1,50 +1,42 @@
-/* eslint-disable react/prop-types */
-import { useNavigate } from "react-router-dom";
-import styles from "./JobCard.module.css";
+// JobCard.jsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Correct hook for navigation
+import styles from './JobCard.module.css';
 
-export const JobCard = ({ job }) => {
-	const navigate = useNavigate();
-	const {
-		title,
-		logoUrl,
-		salary,
-		location,
-		duration,
-		locationType,
-		jobType,
-		skills,
-		_id,
-	} = job;
-	const altJobIcon = "https://static.thenounproject.com/png/2343509-200.png";
+const JobCard = ({ job }) => {
+  const navigate = useNavigate(); // Corrected hook
 
-	return (
-		<div className={styles.jobCard}>
-			<img src={logoUrl || altJobIcon} alt={title} className={styles.logo} />
-			<div className={styles.jobInfo}>
-				<div className={styles.jobTitle}>{title}</div>
-				<div className={styles.jobDetails}>
-					<span>{duration}</span>
-					<span>{salary}</span>
-					<span>{location}</span>
-					<span>{locationType}</span>
-					<span>{jobType}</span>
-				</div>
-			</div>
-			<div className={styles.rightSection}>
-				<div className={styles.skills}>
-					{skills.map((skill, index) => (
-						<div key={index} className={styles.skill}>
-							{skill}
-						</div>
-					))}
-				</div>
-				<button
-					className={styles.viewDetailsButton}
-					onClick={() => navigate(`/job/${_id}`)}
-				>
-					View Details
-				</button>
-			</div>
-		</div>
-	);
+  const handleClick = () => {
+    navigate(`/job/${job.id}`);
+  };
+
+  return (
+    <div className={styles.jobCard} onClick={handleClick}>
+      <img src={job.logoUrl} alt="company logo" className={styles.logo} />
+      <div className={styles.info}>
+        <h3 className={styles.title}>{job.title}</h3>
+        <p className={styles.company}>{job.companyName}</p>
+        <p className={styles.location}>{job.location}</p>
+        <p className={styles.salary}>{job.salary}</p>
+        <div className={styles.skills}>
+          {job.skills.map((skill, index) => (
+            <span key={index} className={styles.skill}>{skill}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
+
+export default JobCard;
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+.addJobPage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form h2 {
+  margin-bottom: 20px;
+}
+
+.form label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.form input, .form select, .form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form textarea {
+  resize: none;
+  height: 60px;
+}
+
+.addButton {
+  padding: 10px 20px;
+  background-color: #ffc107;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
+.sideImage {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.sideImage img {
+  max-width: 100%;
+  height: auto;
+}

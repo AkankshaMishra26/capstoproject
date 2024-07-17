@@ -1,0 +1,99 @@
+.registerPage {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.formContainer {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  border-right: 1px solid #eeeeee;
+}
+
+.imageContainer {
+  flex: 1;
+  background: url('path_to_login_background_image') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.overlay h1 {
+  font-size: 32px; /* Adjust font size as needed */
+  margin: 0;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #6c757d;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkboxContainer input {
+  margin-right: 10px;
+}
+
+.submitButton {
+  background-color: #ff6f61;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submitButton:hover {
+  background-color: #ff4b47;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+a {
+  color: #ff6f61;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

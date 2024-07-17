@@ -1,3 +1,6 @@
+mkdir my-mongo-project
+cd my-mongo-project
+npm init -y
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
