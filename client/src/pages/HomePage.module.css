@@ -1,32 +1,215 @@
+/* HomePage.module.css */
+
 .homePage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-color: #f5f5f5;
   font-family: Arial, sans-serif;
+  color: #333;
 }
 
 .container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f80101;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+}
+
+.loginButton,
+.signupButton {
+  background-color: white;
+  color: #ff6969;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.signupButton {
+  background-color: #ff6969;
+  color: white;
+}
+
+.searchContainer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.searchInput {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.filterContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skillsDropdown {
+  position: relative;
+}
+
+.skillsButton {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.selectedSkills {
+  display: flex;
+  gap: 10px;
+}
+
+.skillTag {
+  background-color: #e31d1d;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Updated styles for applyFilterButton and clearButton */
+.applyFilterButton,
+.clearButton {
+  padding: 12px 24px;
+  background-color: #ff6969; /* Pink background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  font-size: 16px; /* Larger text */
+  font-weight: bold; /* Bold text */
+}
+
+.applyFilterButton:hover,
+.clearButton:hover {
+  background-color: #f03e3e; /* Darker pink on hover */
+  transform: scale(1.05); /* Slightly larger on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Larger shadow on hover */
+}
+
+.applyFilterButton:active,
+.clearButton:active {
+  background-color: #d15050; /* Even darker pink on click */
+  transform: scale(1); /* No scale effect on click */
 }
 
 .jobsList {
-  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
 }
 
-.addButton {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #e91e63;
+.jobItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.companyLogo {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+}
+
+.jobInfo {
+  flex: 1;
+}
+
+.jobTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.companyName,
+.location,
+.salary,
+.employmentType {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.jobTags {
+  display: flex;
+  gap: 5px;
+}
+
+.jobTag {
+  background-color: #c80808;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.viewDetailsButton {
+  background-color: #ff6969;
   color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.addButton:hover {
-  background-color: #d81b60;
+.noJobs {
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+}
+
+/* Added styles for the Add Job button */
+.addJobButton {
+  padding: 12px 24px;
+  background-color: #ff6969; /* Pink background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  font-size: 16px; /* Larger text */
+  font-weight: bold; /* Bold text */
+}
+
+.addJobButton:hover {
+  background-color: #f03e3e; /* Darker pink on hover */
+  transform: scale(1.05); /* Slightly larger on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Larger shadow on hover */
+}
+
+.addJobButton:active {
+  background-color: #d15050; /* Even darker pink on click */
+  transform: scale(1); /* No scale effect on click */
 }

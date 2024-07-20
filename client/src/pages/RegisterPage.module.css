@@ -10,37 +10,34 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #ffffff;
-  border-right: 1px solid #eeeeee;
 }
 
 .imageContainer {
   flex: 1;
-  background: url('path_to_login_background_image') no-repeat center center;
   background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-position: center;
   position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .overlay {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.5);
   color: white;
-  padding: 20px;
-  border-radius: 5px;
+  position: absolute;
+  top: 20px; /* Adjust as needed */
+  text-align: center;
+  font-size: 24px; /* Adjust as needed */
+  font-weight: bold;
 }
 
-.overlay h1 {
-  font-size: 32px; /* Adjust font size as needed */
-  margin: 0;
+h2 {
+  margin-bottom: 10px;
 }
 
-p {
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #6c757d;
+.subheader {
+  color: gray;
+  margin-bottom: 30px;
 }
 
 .formGroup {
@@ -50,13 +47,12 @@ p {
 .formGroup label {
   display: block;
   margin-bottom: 5px;
-  font-weight: bold;
 }
 
 .formGroup input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ced4da;
+  border: 1px solid #ccc;
   border-radius: 5px;
 }
 
@@ -68,29 +64,38 @@ p {
 
 .checkboxContainer input {
   margin-right: 10px;
+  transform: scale(1.5); /* Make the checkbox larger */
+}
+
+.checkboxContainer label {
+  margin: 0;
 }
 
 .submitButton {
-  background-color: #ff6f61;
+  background-color: #ff69b4; /* Light pink color */
   color: white;
-  padding: 10px 20px;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
 
 .submitButton:hover {
-  background-color: #ff4b47;
+  background-color: #ff1493; /* Deep pink color */
 }
 
 .error {
   color: red;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-top: 20px;
 }
 
 a {
-  color: #ff6f61;
+  color: #ff1493;
   text-decoration: none;
 }
 

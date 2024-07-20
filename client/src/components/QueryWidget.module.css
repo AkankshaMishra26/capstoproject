@@ -10,7 +10,7 @@
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ff6f91;
+  border: 1px solid #ea4343;
 }
 
 .filterRow {
@@ -32,7 +32,7 @@
 .select {
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ff6f91;
+  border: 1px solid #ed4545;
 }
 
 .chipsContainer {
@@ -42,7 +42,7 @@
 }
 
 .chip {
-  background-color: #ff8fa3;
+  background-color: #ea4949;
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
@@ -71,12 +71,12 @@
 }
 
 .applyButton {
-  background-color: #ff6f91;
+  background-color: #e42e2e;
   color: white;
 }
 
 .clearButton {
-  background-color: #ff8fa3;
+  background-color: #f42424;
   color: white;
 }
 

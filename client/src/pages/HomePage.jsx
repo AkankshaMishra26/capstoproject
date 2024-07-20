@@ -45,9 +45,9 @@ function HomePage({ currentUser, setCurrentUser }) {
       <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <div className={styles.container}>
         <div className={styles.actionButtons}>
-          <button onClick={() => navigate('/login')} className={styles.loginButton}>Login</button>
-          <button onClick={() => navigate('/register')} className={styles.signupButton}>Signup</button>
-          <button onClick={handleAddJob} className={styles.addJobButton}>+ Add Job</button>
+          <button onClick={handleAddJob} className={`${styles.addJobButton} ${styles.decoratedButton}`}>
+            + Add Job
+          </button>
         </div>
         <QueryWidget query={query} setQuery={setQuery} handleFetchJobs={handleFetchJobs} />
         <div className={styles.jobsList}>
